@@ -1,0 +1,63 @@
+<div class="loginmodal-container">
+
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"></li>
+  </ol>
+  <div class="login-seperator">
+    <h5>
+      Register New User
+    </h5>
+    <br>
+  </div>
+<!--  <form>-->
+<!--    <div *ngIf="!login" class="alert alert-danger loginerr" role="alert">{{loginErr}}</div>-->
+<!--    <label>Email</label>-->
+<!--    <input #email type="email" name="email" placeholder="Email" required>-->
+<!--    &lt;!&ndash;Demo Login info&ndash;&gt;-->
+<!--    <label>Password</label>-->
+<!--    <input #pass type="password" name="pass" placeholder="Password" required>-->
+
+<!--    <input type="submit" name="login" class="loginmodal-submit" value="Sign Up"-->
+<!--           (click)="registerUser(email.value, pass.value)">-->
+<!--  </form>-->
+  <form [formGroup]="form"  (ngSubmit)="registerUser()">
+    <div class="form-group">
+    <div *ngIf="!login" class="alert alert-danger loginerr" role="alert">{{loginErr}}</div>
+
+      <label>Email</label>
+<!--      mysite@ourearth.com
+          my.ownsite@ourearth.org
+           mysite@you.me.net
+           @ is not present
+           (Top Level domain)tld can not start with dot "."
+            No character before @
+            ".b" is not a valid tld
+             tld can not start with dot "."
+             an email should not be start with "."
+             only allows character, digit, underscore, and dash
+             double dots are not allowed-->
+    <input type="email"
+           name="email"
+           placeholder="jimmy@example.com"
+           class="form-control"
+           formControlName="email">
+    <!--Demo Login info-->
+    <label>Password</label>
+<!-- password between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character-->
+    <input type="password"
+           name="password"
+           placeholder="Password"
+           class="form-control"
+           formControlName="password">
+<!--      <h6>password must be between 8 to 15 characters</h6>-->
+<!--      <h6>contain at least one lowercase letter</h6>-->
+<!--      <h6>contain at least one uppercase letter</h6>-->
+<!--      <h6>contain at least one one numeric digit, and one special character</h6>-->
+    </div>
+    <input type="submit" name="login" value="Sign Up" class="btn btn-lg btn-primary">
+  </form>
+  <h6> Already a user Login with your email </h6>
+  <button routerLink="/login" class="btn btn-light">
+    <strong>here</strong>
+  </button>
+</div>
